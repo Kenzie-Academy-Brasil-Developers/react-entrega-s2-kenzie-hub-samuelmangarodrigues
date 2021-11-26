@@ -9,7 +9,6 @@ import { GrStatusUnknown } from "react-icons/gr";
 import { useState } from "react";
 import api from "../api";
 import Techonlogy from "../technologys";
-import { useEffect } from "react/cjs/react.development";
 import { ButtonExit } from "../technologys/styles";
 const UserPage = ({ autheticated, setAuthenticated }) => {
   const [token] = useState(
@@ -64,9 +63,6 @@ const UserPage = ({ autheticated, setAuthenticated }) => {
       })
       .catch((_) => {});
   };
-  useEffect(() => {
-    User();
-  }, []);
 
   const clearrr = () => {
     setAuthenticated(false);
@@ -77,6 +73,7 @@ const UserPage = ({ autheticated, setAuthenticated }) => {
   }
   return (
     <>
+      {User()}
       <Card>
         <h1>Minhas Tecnologias</h1>
         <Techonlogy delet={delet} techs={techs} />
